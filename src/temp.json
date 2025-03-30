@@ -1,0 +1,159 @@
+{
+  "origen": {
+    "productor": "Agencia Estatal de Meteorología - AEMET. Gobierno de España",
+    "web": "https://www.aemet.es",
+    "language": "es",
+    "copyright": "© AEMET. Autorizado el uso de la información y su reproducción citando a AEMET como autora de la misma.",
+    "nota_legal": "https://www.aemet.es/es/nota_legal",
+    "descripcion": "elTiempo.net muestra la información meteorológica creada por © AEMET"
+  },
+  "elaborado": "2025-03-30 14:01:09",
+  "title": "El tiempo en la provincia de Barcelona",
+  "today": {
+    "p": "Cielo poco nuboso, con intervalos de nubes altas por la tarde. Temperaturas mÃ­nimas en ligero descenso o sin cambios; mÃ¡ximas en ascenso, notable en el interior de la mitad norte. Heladas dÃ©biles en el Prepirineo. Viento moderado del norte en el Prepirineo, sin descartar rachas muy fuertes en cotas altas a primeras horas, disminuyendo a flojo por la tarde; en el resto, viento flojo variable con predominio de la componente oeste la primera mitad del dÃ­a."
+  },
+  "tomorrow": {
+    "p": "Cielo poco nuboso o despejado. Temperaturas en ascenso, ligero en el litoral y el prelitoral. Viento flojo variable, con predominio de la componente oeste la primera mitad del dÃ­a y con brisas en el litoral por la tarde."
+  },
+  "ciudades": [
+    {
+      "id": {
+        "0": "08298"
+      },
+      "idProvince": "08",
+      "name": "Vic",
+      "nameProvince": "Barcelona",
+      "stateSky": {
+        "description": "Despejado",
+        "id": "11"
+      },
+      "temperatures": {
+        "max": "19",
+        "min": "2"
+      }
+    },
+    {
+      "id": {
+        "0": "08121"
+      },
+      "idProvince": "08",
+      "name": "Mataró",
+      "nameProvince": "Barcelona",
+      "stateSky": {
+        "description": "Despejado",
+        "id": "11"
+      },
+      "temperatures": {
+        "max": "18",
+        "min": "7"
+      }
+    },
+    {
+      "id": {
+        "0": "08102"
+      },
+      "idProvince": "08",
+      "name": "Igualada",
+      "nameProvince": "Barcelona",
+      "stateSky": {
+        "description": "Despejado",
+        "id": "11"
+      },
+      "temperatures": {
+        "max": "18",
+        "min": "5"
+      }
+    },
+    {
+      "id": {
+        "0": "08307"
+      },
+      "idProvince": "08",
+      "name": "Vilanova i la Geltrú",
+      "nameProvince": "Barcelona",
+      "stateSky": {
+        "description": "Despejado",
+        "id": "11"
+      },
+      "temperatures": {
+        "max": "19",
+        "min": "9"
+      }
+    },
+    {
+      "id": {
+        "0": "08113"
+      },
+      "idProvince": "08",
+      "name": "Manresa",
+      "nameProvince": "Barcelona",
+      "stateSky": {
+        "description": "Despejado",
+        "id": "11"
+      },
+      "temperatures": {
+        "max": "19",
+        "min": "3"
+      }
+    },
+    {
+      "id": {
+        "0": "08187"
+      },
+      "idProvince": "08",
+      "name": "Sabadell",
+      "nameProvince": "Barcelona",
+      "stateSky": {
+        "description": "Despejado",
+        "id": "11"
+      },
+      "temperatures": {
+        "max": "21",
+        "min": "6"
+      }
+    },
+    {
+      "id": {
+        "0": "08019"
+      },
+      "idProvince": "08",
+      "name": "Barcelona",
+      "nameProvince": "Barcelona",
+      "stateSky": {
+        "description": "Despejado",
+        "id": "11"
+      },
+      "temperatures": {
+        "max": "19",
+        "min": "10"
+      }
+    }
+  ],
+  "provincia": {
+    "CODPROV": "08",
+    "NOMBRE_PROVINCIA": "Barcelona",
+    "CODAUTON": "09",
+    "COMUNIDAD_CIUDAD_AUTONOMA": "Cataluña/Catalunya",
+    "CAPITAL_PROVINCIA": "Barcelona"
+  },
+  "comautonoma": {
+    "ID": "cat",
+    "CODAUTON": "09",
+    "CODCOMUN": "69",
+    "NOMBRE": "CATALUÑA"
+  },
+  "metadescripcion": "El tiempo en la provincia de Barcelona",
+  "keywords": "El tiempo en la provincia de Barcelona, precipitaciones, viento, lluvia, estado del cielo",
+  "breadcrumb": [
+    {
+      "name": "Provincias",
+      "url": "/provincias",
+      "title": "El tiempo | Lista de provincias"
+    },
+    {
+      "name": "Barcelona",
+      "url": null,
+      "title": "El tiempo en la provincia de Barcelona"
+    }
+  ]
+}
