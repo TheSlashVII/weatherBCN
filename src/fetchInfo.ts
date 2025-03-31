@@ -217,7 +217,7 @@ export async function infoFetch(province:string):Promise<void> {
     }
 
 }
-infoFetch("Tarragona"); //haciendo pruebas
+// infoFetch("lLeida"); //haciendo pruebas
 
 
 
