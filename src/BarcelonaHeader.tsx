@@ -1,21 +1,21 @@
-import './header.css';
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import LleidaH from "./LleidaHeader.tsx";
+import GironaH from "./GironaHeader.tsx";
+import BarcelonaHeader from "./BarcelonaHeader.tsx";
+import TarragonaHeader from "./TarragonaHeader.tsx";
 
+function barcelonaHeader() {
 
-function header() {
-    const [currentCity, setCurrentCity] = useState("Barcelona");
 
     return(
         <header>
-            <h2>Tiempo de {currentCity}</h2>
+            <h2>Tiempo de Barcelona</h2>
             <div className="provinces">
-                <h4>Tarragona</h4>
-                <h4>Lleida</h4>
-                <h4>Girona</h4>
+                <button>Tarragona</button>
+                <button>Girona</button>
+                <button>Lleida</button>
             </div>
-
         </header>
     )
 }
-
-export default header;
+export default barcelonaHeader;
