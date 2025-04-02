@@ -21,6 +21,7 @@ import {Ajv} from "ajv"; // validador
 *
 * Haciendo eso puedo iterar por todos los objetos
 * */
+// type hecho para filtrar la sublista de ciudades
 export type relevantPredictionFilter = {
     ciudades:[{
         name: string,
@@ -33,27 +34,35 @@ export type relevantPredictionFilter = {
         }
     }]  // esto lo hago porque necesitaba una lista de objetos de tipo ciudad
 }
+// este es el type real y el que se usara en el schema
+export type relevantPrediction = {
+    name: string,
+    stateSky: {
+        description: string,
+    },
+    temperatures: {
+        max: string,
+        min: string,
+    }
+}
 // Response del json que buscamos
 const info:relevantPredictionFilter = await fetch("https://www.el-tiempo.net/api/json/v2/provincias/08").then((res) => res.json());
-const filteredCities:relevantPredictionFilter[] = [] // inicializamos esta array vacia para luego meter los campos del json que queremos
+const filteredCities:relevantPrediction[] = [] // inicializamos esta array vacia para luego meter los campos del json que queremos
 
 
 info.ciudades.forEach(currentCity => {
     // creo un objeto que contenga los campos que necesito
     // entonces se filtrara cada objeto de la lista sin filtrar
     // y pasaremos los objetos filtrados a la lista de ciudades filtradas
-    let eCity:relevantPredictionFilter = {
-        ciudades: [{
-            name: currentCity.name,
-            stateSky: {
-                description: currentCity.stateSky.description,
-            },
-            temperatures: {
-                max: currentCity.temperatures.max,
+    let eCity = {
+        name: currentCity.name,
+        stateSky: {
+        description: currentCity.stateSky.description,
+        },
+        temperatures: {
+            max: currentCity.temperatures.max,
                 min: currentCity.temperatures.min,
-            }
-        }]
-
+        }
     }
     filteredCities.push(eCity);
 })
@@ -67,59 +76,51 @@ const conf = {
 }
 */
 // validacion del schema
-const schema = {
-    type: "array",
-    items: {
-        type: "object",
-        properties: {
-            ciudades: {
-                type: "array",
-                items: {
-                    type: "object",
-                    properties: {
-                        name: {
-                            type: "string"
-                        },
-                        stateSky: {
-                            type: "object",
-                            properties: {
-                                description: {
-                                    type: "string"
-                                }
-                            },
-                            required: [
-                                "description"
-                            ]
-                        },
-                        temperatures: {
-                            type: "object",
-                            properties: {
-                                max: {
-                                    type: "string"
-                                },
-                                min: {
-                                    type: "string"
-                                }
-                            },
-                            required: [
-                                "max",
-                                "min"
-                            ]
-                        }
+const schemaString = {
+    "title": "Schema para ciudades",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "name": {
+                "type": "string"
+            },
+            "stateSky": {
+                "type": "object",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "description"
+                ]
+            },
+            "temperatures": {
+                "type": "object",
+                "properties": {
+                    "max": {
+                        "type": "string"
                     },
-                    required: [
-                        "name",
-                        "stateSky",
-                        "temperatures"
-                    ]
-                }
+                    "min": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "max",
+                    "min"
+                ]
             }
         },
-        required: [
-            "ciudades"
+        "required": [
+            "name",
+            "stateSky",
+            "temperatures"
         ]
     }
 }
+const schema = JSON.parse(JSON.stringify(schemaString)); // convertir el Json en un objeto javascript
+console.log(schema);
 
 const ajvObject = new Ajv();
 const validator = ajvObject.compile(schema);
@@ -198,16 +199,16 @@ export async function infoFetch(province:string):Promise<void> {
 
     // @ts-ignore
     const data:relevantPredictionFilter = await fetch(fetchLink).then((res) => res.json());
-    const filteredCities:relevantPredictionFilter[] = []
+    const filteredCities:relevantPrediction[] = []
     data.ciudades.forEach(currentCity => {
-        let fCity:relevantPredictionFilter = {
-            ciudades: [{name: currentCity.name,
+        let fCity:relevantPrediction = {
+            name: currentCity.name,
                 stateSky: {description: currentCity.stateSky.description},
-                temperatures: {max: currentCity.temperatures.max, min: currentCity.temperatures.min}}]
-
+                temperatures: {max: currentCity.temperatures.max, min: currentCity.temperatures.min}
         }
         filteredCities.push(fCity);
     })
+    // writeFile(jsonFile, JSON.stringify(filteredCities),() => {})
     if (validator(filteredCities)){
         console.log("fetching new data...");
         // @ts-ignore
@@ -216,10 +217,15 @@ export async function infoFetch(province:string):Promise<void> {
         console.error("Error while fetching data!");
     }
 
+
+
 }
-// infoFetch("lLeida"); //haciendo pruebas
-
-
+/*
+infoFetch("girona"); //haciendo pruebas
+infoFetch("lleida");
+infoFetch("tarragona");
+infoFetch("barcelona");
+*/
 
 // writeFile(conf.JSON_File, JSON.stringify(conf.json),() => {})
 
