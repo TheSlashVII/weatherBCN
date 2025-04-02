@@ -1,0 +1,39 @@
+.eachCity .ordenFlex{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.ordenFlex div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.ordenFlex div h5, .ordenFlex div h3, .ordenFlex div h2  {
+    padding: 1em;
+
+}
+.eachCity{
+    padding: 2em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    border-radius: 2em;
+    box-shadow: 0 0 1em rgb(253, 249, 249);
+    background-image: linear-gradient(to left, black, rgb(34, 33, 33));
+}
+.displayInfo{
+    border-radius: 2.3em;
+    box-shadow: 0 0 .5em rgb(253, 249, 249);
+    padding: 2em;
+    display: grid;
+    margin: 3em 1em;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px,2fr))  ;
+}
+button{
+    transition: 0.2s ease;
+    color: white;
+}
+button:hover{
+    transform: scale(1.1);
+    transition-duration: 0.2s;
+}

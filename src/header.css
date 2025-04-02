@@ -6,7 +6,8 @@ header{
     border-radius: 2rem;
     margin: 1em 0.5em;
     background-image: linear-gradient(to left,rgb(34, 33, 33), black);
-    box-shadow: 0 0 2em gray;
+    box-shadow: 0 0 0.5em gray;
+    font-family: Consolas, 'Courier New', Courier, monospace;
 }
 header .provinces{
     display: flex;
